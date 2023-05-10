@@ -12,6 +12,8 @@ import (
 	"github.com/garlicgarrison/mygpt-cli/voice"
 	"github.com/sashabaranov/go-openai"
 	"gopkg.in/yaml.v2"
+
+	eleven "github.com/garlicgarrison/elevenlabs2/client"
 )
 
 func main() {
@@ -62,7 +64,13 @@ func main() {
 		log.Fatalf("recorder error -- %s", err)
 	}
 
-	vc := voice.NewVoice(client, recorder)
+	elevenAPIKey, ok := config["ELEVENLABS_API_KEY"]
+	if !ok {
+		log.Fatalf("ELEVENLABS_API_KEY key not found in YAML file")
+	}
+	elevenClient := eleven.New(elevenAPIKey)
+
+	vc := voice.NewVoice(client, &elevenClient, recorder)
 	go vc.Start()
 
 	select {
