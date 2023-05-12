@@ -5,8 +5,8 @@ go 1.18
 require (
 	github.com/faiface/beep v1.1.0
 	github.com/garlicgarrison/elevenlabs2 v0.0.0-20230510204842-41654de1a5c5
-	github.com/garlicgarrison/go-recorder v0.0.0-20230510000655-f119fff7608e
-	github.com/sashabaranov/go-openai v1.9.3
+	github.com/garlicgarrison/go-recorder v0.0.0-20230512231103-599cb77d9c61
+	github.com/sashabaranov/go-openai v1.9.4
 	gopkg.in/yaml.v2 v2.4.0
 )
 
